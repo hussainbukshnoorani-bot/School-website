@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My School Website</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink: #ff5da2;
+    --orange: #ff9f43;
+    --yellow: #ffd93d;
+    --teal: #21c9c0;
+    --purple: #7c5cff;
+    --dark: #2d2340;
+    --light-bg: #fff8f2;
+    --card-bg: #ffffff;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--light-bg);
+    color: var(--dark);
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Baloo 2', cursive;
+  }
+
+  header {
+    background: linear-gradient(135deg, var(--purple), var(--pink));
+    color: white;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
+
+  header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+  }
+
+  .header-sub {
+    margin: 4px 0 0 0;
+    font-size: 0.85rem;
+    opacity: 0.9;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 20px;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  nav a:hover {
+    background: rgba(255,255,255,0.25);
+    transform: translateY(-2px);
+  }
+
+  section {
+    padding: 60px 8vw;
+  }
+
+  section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+  }
+
+  .underline {
+    width: 70px;
+    height: 5px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+  }
+
+  /* ABOUT */
+  #about {
+    background: var(--light-bg);
+  }
+
+  .about-wrap {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .avatar {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--yellow), var(--orange));
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+
+  .about-text {
+    flex: 1;
+    min-width: 260px;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .tag {
+    background: var(--teal);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .mission-box {
+    margin-top: 30px;
+    background: var(--card-bg);
+    border-left: 8px solid var(--purple);
+    border-radius: 16px;
+    padding: 25px 30px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    max-width: 700px;
+  }
+
+  .mission-box p {
+    margin: 0 0 10px 0;
+    font-style: italic;
+  }
+
+  .mission-source {
+    font-size: 0.85rem;
+    color: #777;
+  }
+
+  /* PROGRAMMES */
+  #programmes {
+    background: #fff0e5;
+  }
+
+  .prog-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+  }
+
+  .prog-card:hover {
+    transform: translateY(-6px);
+  }
+
+  .prog-card h3 {
+    margin: 0 0 4px 0;
+    font-size: 1.6rem;
+    color: var(--purple);
+  }
+
+  .prog-age {
+    font-weight: 600;
+    color: var(--orange);
+    margin: 0 0 12px 0;
+  }
+
+  .prog-card p:last-child {
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  /* LEARNER PROFILE */
+  #profile {
+    background: var(--light-bg);
+  }
+
+  .profile-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .profile-badge {
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  /* PROJECT */
+  #project {
+    background: #fff0e5;
+  }
+
+  .project-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    border-left: 8px solid var(--orange);
+    max-width: 700px;
+  }
+
+  /* CLUB */
+  #club {
+    background: linear-gradient(135deg, var(--purple), var(--teal));
+    color: white;
+  }
+
+  #club h2, #club .underline-label { color: white; }
+
+  .club-card {
+    background: rgba(255,255,255,0.15);
+    border-radius: 16px;
+    padding: 30px;
+    backdrop-filter: blur(2px);
+    max-width: 700px;
+  }
+
+  .club-card p strong { color: var(--yellow); }
+
+  /* PORTFOLIO */
+  #portfolio {
+    background: var(--light-bg);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+  }
+
+  .port-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .port-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.15);
+  }
+
+  .thumb {
+    height: 110px;
+  }
+
+  .thumb.p1 { background: linear-gradient(135deg, var(--pink), var(--orange)); }
+  .thumb.p2 { background: linear-gradient(135deg, var(--teal), var(--purple)); }
+  .thumb.p3 { background: linear-gradient(135deg, var(--yellow), var(--pink)); }
+  .thumb.p4 { background: linear-gradient(135deg, var(--purple), var(--orange)); }
+
+  .port-body {
+    padding: 18px;
+  }
+
+  .port-body h3 {
+    margin: 0 0 8px 0;
+  }
+
+  .port-body p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  /* CONTACT / FOOTER */
+  footer {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 35px 20px;
+  }
+
+  footer a {
+    color: var(--yellow);
+  }
+
+  @media (max-width: 600px) {
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    section {
+      padding: 45px 6vw;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Your Name</h1>
+    <p class="header-sub">LEARNERS' INN &middot; An International Baccalaureate school</p>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#programmes">Programmes</a></li>
+      <li><a href="#profile">Learner Profile</a></li>
+      <li><a href="#project">Project</a></li>
+      <li><a href="#club">Club</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section id="about">
+  <h2>About Me</h2>
+  <div class="underline" style="background: var(--pink);"></div>
+  <div class="about-wrap">
+    <div class="avatar">🙂</div>
+    <div class="about-text">
+      <p>Hi, I'm <strong>Your Name</strong>! I'm a student at <strong>LEARNERS' INN</strong>, an IB school. I made
+      this website as a fun project to share a bit about myself, my schoolwork, and a club I'm part of.</p>
+      <p>Here are a few things I like:</p>
+      <div class="tags">
+        <span class="tag">Science</span>
+        <span class="tag">Art</span>
+        <span class="tag">Basketball</span>
+        <span class="tag">Video Games</span>
+        <span class="tag">Reading</span>
+      </div>
+    </div>
+  </div>
+  <div class="mission-box">
+    <p>&ldquo;The IB aims to develop inquiring, knowledgeable and caring young people who help to create a better
+    and more peaceful world through intercultural understanding and respect.&rdquo;</p>
+    <span class="mission-source">&mdash; IB mission statement, ibo.org</span>
+  </div>
+</section>
+
+<section id="programmes">
+  <h2>Our IB Programmes</h2>
+  <div class="underline" style="background: var(--purple);"></div>
+  <div class="grid">
+    <div class="prog-card">
+      <h3>PYP</h3>
+      <p class="prog-age">Ages 3&ndash;12</p>
+      <p>Primary Years Programme &mdash; inquiry-based learning built around big, transdisciplinary themes that spark curiosity.</p>
+    </div>
+    <div class="prog-card">
+      <h3>MYP</h3>
+      <p class="prog-age">Ages 11&ndash;16</p>
+      <p>Middle Years Programme &mdash; students connect a broad range of subjects to the real world, building toward a personal project.</p>
+    </div>
+    <div class="prog-card">
+      <h3>DP</h3>
+      <p class="prog-age">Ages 16&ndash;19</p>
+      <p>Diploma Programme &mdash; the internationally recognized, university-entrance qualification IB is best known for.</p>
+    </div>
+    <div class="prog-card">
+      <h3>CP</h3>
+      <p class="prog-age">Ages 16&ndash;19</p>
+      <p>Career-related Programme &mdash; blends DP courses with career-focused study for a professional pathway.</p>
+    </div>
+  </div>
+</section>
+
+<section id="profile">
+  <h2>IB Learner Profile</h2>
+  <div class="underline" style="background: var(--pink);"></div>
+  <p>The ten attributes every IB learner aims to develop:</p>
+  <div class="profile-grid">
+    <span class="profile-badge">Inquirers</span>
+    <span class="profile-badge">Knowledgeable</span>
+    <span class="profile-badge">Thinkers</span>
+    <span class="profile-badge">Communicators</span>
+    <span class="profile-badge">Principled</span>
+    <span class="profile-badge">Open-minded</span>
+    <span class="profile-badge">Caring</span>
+    <span class="profile-badge">Risk-takers</span>
+    <span class="profile-badge">Balanced</span>
+    <span class="profile-badge">Reflective</span>
+  </div>
+</section>
+
+<section id="project">
+  <h2>My School Project</h2>
+  <div class="underline" style="background: var(--orange);"></div>
+  <div class="project-card">
+    <h3>Your School Project Title</h3>
+    <p><strong>Class:</strong> Your Class Name</p>
+    <p>This is a short description of my school project. Explain what the project is about, what you learned, and
+    why it was interesting. You can replace this text with details about your real assignment.</p>
+  </div>
+</section>
+
+<section id="club">
+  <h2>My Club / Event</h2>
+  <div class="underline" style="background: var(--yellow);"></div>
+  <div class="club-card">
+    <h3>Your Club or Event Name</h3>
+    <p><strong>Meets:</strong> Every Friday, 3:00 PM &mdash; Room 101</p>
+    <p>Describe your club or an upcoming school event here. Talk about what the club does, who can join, or what
+    happens at the event.</p>
+  </div>
+</section>
+
+<section id="portfolio">
+  <h2>My Portfolio</h2>
+  <div class="underline" style="background: var(--teal);"></div>
+  <div class="grid">
+    <div class="port-card">
+      <div class="thumb p1"></div>
+      <div class="port-body">
+        <h3>Project One</h3>
+        <p>A short description of this piece of school work.</p>
+      </div>
+    </div>
+    <div class="port-card">
+      <div class="thumb p2"></div>
+      <div class="port-body">
+        <h3>Project Two</h3>
+        <p>A short description of this piece of school work.</p>
+      </div>
+    </div>
+    <div class="port-card">
+      <div class="thumb p3"></div>
+      <div class="port-body">
+        <h3>Project Three</h3>
+        <p>A short description of this piece of school work.</p>
+      </div>
+    </div>
+    <div class="port-card">
+      <div class="thumb p4"></div>
+      <div class="port-body">
+        <h3>Project Four</h3>
+        <p>A short description of this piece of school work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <p>Made by <strong>Your Name</strong> &middot; <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+  <p>&copy; 2026 LEARNERS' INN</p>
+</footer>
+
+</body>
+</html>
